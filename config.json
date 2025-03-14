@@ -1,0 +1,9 @@
+{
+  "auths": {
+    "acrgreetinglabds.azurecr.io": {
+      "username": "acrgreetinglabds",
+      "password": "rCVoKYiu/H8cthP1+h0UGhZ4QJYsMaojbfPp3Q5Ovd+ACRBUHZAO",
+      "auth": "YWNyZ3JlZXRpbmdsYWJkczpyQ1ZvS1lpdS9IOGN0aFAxK2gwVUdoWjRRSllzTWFvamJmUHAzUTVPdmQrQUNSQlVIWkFP"
+    }
+  }
+}

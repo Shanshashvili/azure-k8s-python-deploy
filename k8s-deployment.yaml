@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greetings-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: greetings-app
+  template:
+    metadata:
+      labels:
+        app: greetings-app
+    spec:
+      containers:
+      - name: greetings-app
+        image: acrgreetinglabds.azurecr.io/greetings-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        env:
+        - name: NAME
+          valueFrom:
+            configMapKeyRef:
+              name: greetings-config
+              key: name
+      imagePullSecrets:
+      - name: acr-secret  # Reference to the secret
