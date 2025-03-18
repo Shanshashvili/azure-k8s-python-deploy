@@ -93,7 +93,13 @@ data:
   .dockerconfigjson: <PASTE_BASE64_ENCODED_VALUE>
 ```
 
-#### 🔹 (e) Apply the Secret
+#### 🔹 (e) Connect to AKS Cluster
+```sh
+az aks get-credentials --resource-group rg-greetinglab-ds-centralus --name aks-greetinglab-ds
+kubectl get nodes
+```
+
+#### 🔹 (f) Apply the Secret
 ```sh
 kubectl apply -f acr-secret.yaml
 kubectl get secret acr-secret --output=yaml
@@ -139,13 +145,7 @@ containers:
 
 ### **4️⃣ Deploy Application in AKS**
 
-#### 🔹 (a) Connect to AKS Cluster
-```sh
-az aks get-credentials --resource-group rg-greetinglab-ds-centralus --name aks-greetinglab-ds
-kubectl get nodes
-```
-
-#### 🔹 (b) Deploy Redis First
+#### 🔹 (a) Deploy Redis First
 ```sh
 kubectl apply -f redis-deployment.yaml
 kubectl apply -f redis-service.yaml
@@ -153,14 +153,14 @@ kubectl get pods
 kubectl get svc
 ```
 
-#### 🔹 (c) Deploy the Greetings App
+#### 🔹 (b) Deploy the Greetings App
 ```sh
 kubectl apply -f k8s-deployment.yaml
 kubectl apply -f greetings-config.yaml
 kubectl get pods
 ```
 
-#### 🔹 (d) Expose the Greetings App
+#### 🔹 (c) Expose the Greetings App
 ```sh
 kubectl apply -f greetings-service.yaml
 kubectl get svc
