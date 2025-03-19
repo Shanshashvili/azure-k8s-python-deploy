@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: greetings-app
-        image: acrgreetinglabds.azurecr.io/greetings-app:latest
+        image: acrgreetinglabds.azurecr.io/greetings-app:latest  # add here created image path
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
